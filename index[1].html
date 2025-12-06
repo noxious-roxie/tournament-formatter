@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Tournament Formatter — Kiru</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <main class="container">
+    <header>
+      <h1>Tournament OP & Replay Generator</h1>
+      <p class="muted">Paste a Smogon thread URL (or paste OP text). Click Parse → Generate.</p>
+    </header>
+
+    <label class="full">Smogon thread URL or paste OP/raw text
+      <textarea id="threadInput" placeholder="https://www.smogon.com/forums/threads/... or paste OP text"></textarea>
+    </label>
+
+    <div class="controls">
+      <label><input id="optSprites" type="checkbox" checked/> Use sprite decorations</label>
+      <label><input id="optAutoPrefixes" type="checkbox" checked/> Auto-generate team prefixes</label>
+      <label><input id="optKey" type="checkbox" checked/> Include KEY in output</label>
+    </div>
+
+    <div class="buttons">
+      <button id="btnParse">Parse thread</button>
+      <button id="btnGenerateReplays" disabled>Generate Replay Formatting</button>
+      <button id="btnGenerateKey" disabled>Generate KEY Section</button>
+    </div>
+
+    <section id="parsedArea" class="card hidden">
+      <h2>Parsed (preview)</h2>
+      <pre id="parsedJson"></pre>
+    </section>
+
+    <section id="outputArea" class="card hidden">
+      <h2>Generated BBCode (replays)</h2>
+      <textarea id="bbOutput" rows="14" readonly></textarea>
+      <div class="actions">
+        <button id="copyReplays">Copy Replays BBCode</button>
+      </div>
+    </section>
+
+    <section id="keyArea" class="card hidden">
+      <h2>Generated KEY (OP)</h2>
+      <textarea id="keyOutput" rows="6" readonly></textarea>
+      <div class="actions">
+        <button id="copyKey">Copy KEY</button>
+      </div>
+    </section>
+
+    <footer class="muted">
+      <small>Advanced build — CORS fallback & safer parsing. For best results add real replay URLs to override map in script.js.</small>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
